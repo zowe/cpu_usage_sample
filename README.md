@@ -4,13 +4,13 @@ This sample is a demonstration of how to rapidly stand up a REST API to expose f
 
 This sample is not intended to be used in a production environment as-is but instead is intended to serve as a template for anyone else wanting to quickly get their own functionality running on Zowe via the API Gateway
 
-## Prerequisites
+## Prerequisites
 
 In order to build the sample it's necessary to download the ISFJCALL jar file. When running on the z/OS machine the API's will interface with the libraries provided by the Java SDK which need to be enabled.  
 
 For more information about SDSF and ensuring your installation is running the Java SDK please consult publication: SC27-9028-30: z/OS SDSF User's Guide
 
-## Build
+## Build
 
 For this example it is necessary to download the isfjcall.jar file from the host server so that the build can compile against it. Locate the file in the uss folder /usr/lpp/sdsf/java/classes/ and download it to your local machine and save  into the libs folder so it can be referenced by the pom file.
 
@@ -31,7 +31,7 @@ Update the PORT and ZOWE_LOCATION variables in cpu-usage.sh to reflect your inst
 
 Update the cpu-usage-mediation-configure.sh file using the same PORT and ZOWE_LOCATION variables from the cpu-usage.sh along with the ZOWE_EXPLORER_HOST name.
 
-## Run Scripts
+## Run Scripts
 
 The cpu-usage-mediation-configure.sh script creates the configuration necessary to define your service to the API Mediation layer. Run this script to create the definition although the Zowe server will need to be restarted to pick up this definition later.
 
@@ -58,7 +58,7 @@ https://{ZOWE_EXPLORER_HOST}:{ZOWE_PORT}/api/v1/cpu/snapshot
 
 You will see a snapshot of CPU readings.
 
-## What Next?
+## What Next?
 
 1. Use this project as a template to enable your own API's
 2. Extend this sample with additional API's from SDSF
