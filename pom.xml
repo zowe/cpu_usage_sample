@@ -47,8 +47,7 @@
 			<groupId>com.ibm</groupId>
 			<artifactId>isfjcall</artifactId>
 			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/libs/isfjcall.jar</systemPath>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.inject</groupId>

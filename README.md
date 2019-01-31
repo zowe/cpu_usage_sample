@@ -12,10 +12,15 @@ For more information about SDSF and ensuring your installation is running the Ja
 
 ## Build
 
-For this example it is necessary to download the isfjcall.jar file from the host server so that the build can compile against it. Locate the file in the uss folder /usr/lpp/sdsf/java/classes/ and download it to your local machine and save  into the libs folder so it can be referenced by the pom file.
+For this example it is necessary to download the isfjcall.jar file from the host server so that the build can compile against it. Locate the file in the uss folder /usr/lpp/sdsf/java/classes/ and download it to your local machine Run the following xommand to install it into your local maven repo 
+```
+mvn install:install-file -Dfile=<your_download_folder>/isfjcall.jar -DgroupId=com.ibm -DartifactId=isfjcall -Dversion=1.0 -Dpackaging=jar
+```
 
-run the build...
+Run the build...
+```
 mvn clean verify
+```
 
 ## Deploy
 
