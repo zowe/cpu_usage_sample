@@ -24,11 +24,11 @@ mvn clean verify
 
 ## Deploy
 
-Once you have a successful build transfer the following files to your server creating a USS folder for them:
+Once you have a successful build, create a uss folder on the server and transfer the following files:
 
-- /cpu-usage/target/cpu-1.0.0.jar
-- /scripts/cpu-usage-mediation-configure.sh
-- /scripts/cpu-usage.sh
+- from /cpu-usage/target/cpu-1.0.0.jar
+- from /scripts/cpu-usage-mediation-configure.sh
+- from /scripts/cpu-usage.sh
 
 ## Update script variables
 
