@@ -23,6 +23,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<outputArtifactFile>cpu-usage.pax</outputArtifactFile>
 	</properties>
 
 	<dependencies>
@@ -82,6 +83,53 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<tasks>
+								<echo>Copying jar file before pax</echo>
+								<copy file="target/cpu-1.0.0.jar" tofile="cpu-1.0.0.jar"/>
+								</tasks>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>			
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.5.0</version>
+				<executions>
+				<!-- Create PAX archive  -->
+					<execution>
+						<id>package-atlas</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>pax</executable> 
+							<workingDirectory>${wlpRuntimeTempDir}</workingDirectory>
+							<arguments>
+								<argument>-wf</argument>
+								<argument>${outputArtifactFile}</argument>
+								<argument>-x</argument>
+								<argument>pax</argument>
+								<argument>cpu-1.0.0.jar</argument>
+								<argument>scripts/cpu_usage.sh</argument>
+								<argument>scripts/cpu-usage-mediation-configure.sh</argument>
+							</arguments> 
+						</configuration>
+					</execution>
+				</executions>	
+			</plugin>		
 		</plugins>
 	</build>
 

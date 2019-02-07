@@ -12,7 +12,7 @@ For more information about SDSF and ensuring your installation is running the Ja
 
 ## Build
 
-For this example it is necessary to download the isfjcall.jar file from the host server so that the build can compile against it. Locate the file in the uss folder /usr/lpp/sdsf/java/classes/ and download it to your local machine Run the following xommand to install it into your local maven repo 
+For this example it is necessary to download the isfjcall.jar file from the host server so that the build can compile against it. Locate the file in the uss folder /usr/lpp/sdsf/java/classes/ and download it to your local machine Run the following command to install it into your local maven repo 
 ```
 mvn install:install-file -Dfile=<your_download_folder>/isfjcall.jar -DgroupId=com.ibm -DartifactId=isfjcall -Dversion=1.0 -Dpackaging=jar
 ```
@@ -24,29 +24,26 @@ mvn clean verify
 
 ## Deploy
 
-Once you have a successful build, create a uss folder on the server and transfer the following files:
-
-- from /target/cpu-1.0.0.jar
-- from /scripts/cpu-usage-mediation-configure.sh
-- from /scripts/cpu-usage.sh
+The build creates a file called cpu-usage.pax that is to be transferred to your server. Create and change directory to zowe-extra. Copy this file here and extract using the command pax -ppx -rf cpu-usage.pax
 
 ## Update script variables
 
-Update the PORT and ZOWE_LOCATION variables in cpu-usage.sh to reflect your installation. SDSF is normally in the same place but check and reset this variable if it is not.
+Update the PORT and ZOWE_LOCATION variables in run-cpu-usage.sh to reflect your installation. SDSF is normally in the same place but check and reset this variable if it is not.
 
-Update the cpu-usage-mediation-configure.sh file using the same PORT and ZOWE_LOCATION variables from the cpu-usage.sh along with the ZOWE_EXPLORER_HOST name.
+Update the install.sh file using the same PORT and ZOWE_LOCATION variables from the run-cpu-usage.sh along with the ZOWE_EXPLORER_HOST name.
 
 ## Run Scripts
 
-The cpu-usage-mediation-configure.sh script creates the configuration necessary to define your service to the API Mediation layer. Run this script to create the definition although the Zowe server will need to be restarted to pick up this definition later.
+* Note * Run once only
+The install.sh script creates the configuration necessary to define your service to the API Mediation layer. Run this script to create the definition although the Zowe server will need to be restarted to pick up this definition later.
 
-The cpu-usage.sh starts the Spring Boot application itself and runs independently of zowe so running from a cmmand line you should see something like this.. 
+The cpu-usage.sh starts the Spring Boot application itself and runs independently of zowe so running from a command line you should see something like this.. 
 
 ```
 Started UsageInfoApplication in 7.338 seconds (JVM running for 8.709)
 ```
 
-Note. I would expect that in a production scenario this shell script would be replaced by as service
+Note. I would expect that in a production scenario this shell script would be replaced by a job or other more formalised process.
 
 In a browser type the address https://{ZOWE_EXPLORER_HOST}:{PORT}/swagger-ui.html to see the following:
 
