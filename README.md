@@ -34,7 +34,7 @@ Update the install.sh file using the same PORT and ZOWE_LOCATION variables from 
 
 ## Run Scripts
 
-*Note* Run once only
+**Run once only.**
 The install.sh script creates the configuration necessary to define your service to the API Mediation layer. Run this script to create the definition although the Zowe server will need to be restarted to pick up this definition later.
 
 The cpu-usage.sh starts the Spring Boot application itself and runs independently of zowe so running from a command line you should see something like this.. 
@@ -43,7 +43,7 @@ The cpu-usage.sh starts the Spring Boot application itself and runs independentl
 Started UsageInfoApplication in 7.338 seconds (JVM running for 8.709)
 ```
 
-*Note* I would expect that in a production scenario this shell script would be replaced by a job or other more formalised process.
+It is to be expected that in a production scenario this shell script would be replaced by a job or other more formalised process.
 
 In a browser type the address https://{ZOWE_EXPLORER_HOST}:{PORT}/swagger-ui.html to see the following:
 
