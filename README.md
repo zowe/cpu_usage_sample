@@ -21,6 +21,11 @@ Run the build...
 ```
 mvn clean verify
 ```
+### Windows caveat
+
+The Maven build utilizes the Pax file compression utility to collect the build output files that need to be transferred to the z server. This utility is unavailable under windows. If you build under windows you will get a failure because the pax stage cannot be completed. However the three files will have been created in the target folder and can be manually transferred to z into their own folder. These files are the two shell scripts: install.sh and run-cpu-usage.sh and the cpu-n.n.n.jar file.  
+
+This issue does not apply to OSx or Linux build clients or alternatively running within docker.
 
 ## Deploy
 
