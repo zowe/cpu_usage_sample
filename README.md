@@ -33,9 +33,11 @@ The build creates a file called cpu-usage.pax that is to be transferred to your 
 
 ## Update script variables
 
-Update the PORT and ZOWE_LOCATION variables in run-cpu-usage.sh to reflect your installation. SDSF is normally in the same place but check and reset this variable if it is not.
+Update the __PORT__ and __ZOWE_LOCATION__ variables in run-cpu-usage.sh to reflect your installation. SDSF is normally in the same place but check and reset this variable if it is not.
 
-Update the install.sh file using the same PORT and ZOWE_LOCATION variables from the run-cpu-usage.sh along with the ZOWE_EXPLORER_HOST name.
+Update the install.sh file using the same __PORT__ and __ZOWE_LOCATION__ values from the run-cpu-usage.sh along with the __ZOWE_EXPLORER_HOST__ name.
+
+Please note that __PORT__ will be any port of your choosing, which is currently not in use in your TCPIP config.
 
 ## Run Scripts
 
