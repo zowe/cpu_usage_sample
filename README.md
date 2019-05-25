@@ -21,6 +21,11 @@ Run the build...
 ```
 mvn clean verify
 ```
+### Windows caveat
+
+The Maven build utilizes the Pax file compression utility to collect the build output files that need to be transferred to the z server. This utility is unavailable under windows. If you build under windows you will get a failure because the pax stage cannot be completed. However the three files will have been created in the target folder and can be manually transferred to z into their own folder. These files are the two shell scripts: install.sh and run-cpu-usage.sh and the cpu-n.n.n.jar file.  
+
+This issue does not apply to OSx or Linux build clients or alternatively running within docker.
 
 ## Deploy
 
@@ -28,9 +33,11 @@ The build creates a file called cpu-usage.pax that is to be transferred to your 
 
 ## Update script variables
 
-Update the PORT and ZOWE_LOCATION variables in run-cpu-usage.sh to reflect your installation. SDSF is normally in the same place but check and reset this variable if it is not.
+Update the __PORT__ and __ZOWE_LOCATION__ variables in run-cpu-usage.sh to reflect your installation. SDSF is normally in the same place but check and reset this variable if it is not.
 
-Update the install.sh file using the same PORT and ZOWE_LOCATION variables from the run-cpu-usage.sh along with the ZOWE_EXPLORER_HOST name.
+Update the install.sh file using the same __PORT__ and __ZOWE_LOCATION__ values from the run-cpu-usage.sh along with the __ZOWE_EXPLORER_HOST__ name.
+
+Please note that __PORT__ will be any port of your choosing, which is currently not in use in your TCPIP config.
 
 ## Run Scripts
 
