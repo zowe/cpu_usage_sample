@@ -1,0 +1,11 @@
+I, Colin Stone hereby sign-off-by all of my past commits to this repo subject to the Developer Certificate of Origin (DCO), Version 1.1. In the past I have used emails: 30794003+Colin-Stone@users.noreply.github.com
+
+7fb749cbcfe677d1f88a0a3945e678951bc65a5f Emphasise port is your own choice
+b53b4ce689fb2009b9ef7866a50652686138c458 Add windows caveat 
+
+https://github.com/zowe/cpu_usage_sample/issues/4
+d8bf6b3e41c7402365255b4ede28e820cc1c8434 Emphasis expansion
+9b455ab5bb46f1a3f4abe5aee9739e76bdf3f510 Correct note emphasis
+625b2edf86931cbab2298442d2c6d5c6bd21e99a remove redundant folder
+9ad650a414857862aee24992112e3ac0690a7763 Rewording change
+b73eb3f934fbed6c6c0d4fc63a93129e7714609f Update README.md
